@@ -69,6 +69,9 @@ syntax on
 filetype on               " Enable filetype detection
 filetype indent on        " Enable filetype-specific indenting
 filetype plugin on        " Enable filetype-specific plugins
+set smartindent
+
+let g:html_indent_inctags = "html,body,head,tbody" 
 
 " Annoyance removal
 set noerrorbells
