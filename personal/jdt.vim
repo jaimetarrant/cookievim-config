@@ -5,8 +5,8 @@ set encoding=utf8         " Default encoding - I override this for mutt though.
 set ffs=unix,dos,mac                         
 
 set showcmd               " Show commands in bottom right corner
-set backupdir=~/.vim-tmp,~/tmp
-set dir=~/.vim-tmp
+set backupdir=~/.tmp
+set dir=~/.tmp
 
 let mapleader = ","
 
