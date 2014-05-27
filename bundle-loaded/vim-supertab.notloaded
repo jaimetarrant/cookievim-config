@@ -17,6 +17,7 @@ Bundle 'ervandew/supertab'
 " ---------------
 " Put plugin specific configuration info here:
 "
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 
 " }
