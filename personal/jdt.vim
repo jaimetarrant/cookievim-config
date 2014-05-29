@@ -2,7 +2,7 @@
 " My Settings ...
 
 set encoding=utf8         " Default encoding - I override this for mutt though.
-set ffs=unix,dos,mac                         
+set ffs=unix,dos,mac
 
 set showcmd               " Show commands in bottom right corner
 set backupdir=~/.tmp
@@ -29,16 +29,16 @@ set ruler                 " show the cursor position all the time
 set autoread              " auto read when file is changed from outside
 set wrap                  " Word wrapping
 set autoindent            " Indent at the same level of the previous line
-set shiftwidth=2          " Set indent size ... I like 2, since I am on a small screen often. 
+set shiftwidth=2          " Set indent size ... I like 2, since I am on a small screen often.
 set expandtab             " Make tabs spaces instead
 set tabstop=2             " An indentation every `n` columns
 set softtabstop=2         " Let backspace delete indent
-set textwidth=78          " I like to wrap at 78 by default. In mutt I override this at 72 
+set textwidth=78          " I like to wrap at 78 by default. In mutt I override this at 72
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore   " Allow for cursor beyond last character
 set history=1000          " Store a ton of history (default is 20)
-set nospell               " Spell checking off <-- drives me nuts in code. 
+set nospell               " Spell checking off <-- drives me nuts in code.
 set hidden                " Allow buffer switching without saving
 set backspace=indent,eol,start " Backspace for dummies
 set linespace=0           " No extra spaces between rows
@@ -73,7 +73,7 @@ filetype indent on        " Enable filetype-specific indenting
 filetype plugin on        " Enable filetype-specific plugins
 set smartindent
 
-let g:html_indent_inctags = "html,body,head,tbody" 
+let g:html_indent_inctags = "html,body,head,tbody"
 
 " Annoyance removal
 set noerrorbells
@@ -108,6 +108,10 @@ autocmd BufWrite *.cpp :call DeleteTrailingWS()
 " Run on all files
 autocmd BufWrite * :call DeleteTrailingWS()
 
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
 
 " Git commits
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
