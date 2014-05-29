@@ -62,7 +62,7 @@ set splitbelow            " Puts new split windows to the bottom of the current
 set matchpairs+=<:>       " Match, to be used with %
 set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
 set pastetoggle=<F12>     " yes, it is possible to paste in vim normally.
-
+set magic                 " for regex
 set cinkeys=0{,0},:,0#,!,!^Fs
 
 
@@ -79,6 +79,34 @@ let g:html_indent_inctags = "html,body,head,tbody"
 set noerrorbells
 set novisualbell
 set t_vb=
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+"set Y to duplicate line
+nnoremap Y yyp
+
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+nnoremap <M-j> mz:m+<cr>`z
+nnoremap <M-k> mz:m-2<cr>`z
+vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+" Delete trailing white space on save, useful for Python and others
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd BufWrite *.cc :call DeleteTrailingWS()
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
+" Run on all files
+autocmd BufWrite * :call DeleteTrailingWS()
 
 
 " Git commits
