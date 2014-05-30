@@ -132,13 +132,8 @@ if has('statusline')
 endif
 
 " Clipboard register optimisations
-if has('clipboard')
-  if LINUX()  " On Linux use + register for copy-paste
-    set clipboard=unnamedplus
-  else        " On mac and Windows, use * register for copy-paste
-    set clipboard=unnamed
-  endif
-endif
+set clipboard=unnamedplus " for linux
+" set clipboard=unnamed   " for mac osx
 
 " C
 " ,g generates the header guard
