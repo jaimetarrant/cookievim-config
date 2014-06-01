@@ -66,7 +66,7 @@ set magic                 " for regex
 set cinkeys=0{,0},:,0#,!,!^Fs
 
 
-filetype off              " necessary to make ftdetect work on Linux
+" Loaded by default, unloaded in module specific configs if required.
 syntax on
 filetype on               " Enable filetype detection
 filetype indent on        " Enable filetype-specific indenting
@@ -78,7 +78,7 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " Annoyance removal
 set noerrorbells
 set novisualbell
-set t_vb=
+set t_vb=                   " What is this?
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
