@@ -19,7 +19,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
+autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 " Lots of settings found on github that are useful
 
@@ -63,7 +63,7 @@ set matchpairs+=<:>       " Match, to be used with %
 set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
 set pastetoggle=<F12>     " yes, it is possible to paste in vim normally.
 set magic                 " for regex
-set cinkeys=0{,0},:,0#,!,!^Fs
+"set cinkeys=0{,0},:,0#,!,!^Fs    " <-- breaks , in c mode
 
 
 " Loaded by default, unloaded in module specific configs if required.
