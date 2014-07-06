@@ -88,6 +88,10 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "set Y to duplicate line
 nnoremap Y yyp
 
+" Highlight scripts as bash
+
+let g:is_posix = 1
+
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nnoremap <M-j> mz:m+<cr>`z
 nnoremap <M-k> mz:m-2<cr>`z
