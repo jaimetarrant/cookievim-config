@@ -28,11 +28,11 @@ set bs=2                  " allow backspacing over everything in insert mode
 set ruler                 " show the cursor position all the time
 set autoread              " auto read when file is changed from outside
 set wrap                  " Word wrapping
-set autoindent            " Indent at the same level of the previous line
-set shiftwidth=2          " Set indent size ... I like 2, since I am on a small screen often.
+set smartindent            " Indent at the same level of the previous line
+"set shiftwidth=2          " Set indent size ... I like 2, since I am on a small screen often.
 set expandtab             " Make tabs spaces instead
-set tabstop=2             " An indentation every `n` columns
-set softtabstop=2         " Let backspace delete indent
+"set tabstop=2             " An indentation every `n` columns
+"set softtabstop=2         " Let backspace delete indent
 set textwidth=78          " I like to wrap at 78 by default. In mutt I override this at 72
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -64,14 +64,14 @@ set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
 set pastetoggle=<F12>     " yes, it is possible to paste in vim normally.
 set magic                 " for regex
 "set cinkeys=0{,0},:,0#,!,!^Fs    " <-- breaks , in c mode
-
+set ai
+set si
 
 " Loaded by default, unloaded in module specific configs if required.
 syntax on
 filetype on               " Enable filetype detection
 filetype indent on        " Enable filetype-specific indenting
 filetype plugin on        " Enable filetype-specific plugins
-set smartindent
 
 let g:html_indent_inctags = "html,body,head,tbody"
 
@@ -116,6 +116,11 @@ autocmd BufWrite * :call DeleteTrailingWS()
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
+
+" Some convenience mappings
+
+map jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
+imap <C-w> <ESC><C-w> " Allow window operations while in insert-mode
 
 " Git commits
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
