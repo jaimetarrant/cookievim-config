@@ -22,7 +22,21 @@ nnoremap <C-H> <C-W><C-H>
 autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 " Lots of settings found on github that are useful
-
+set nocompatible
+set shiftwidth=2
+set softtabstop=2
+set ruler
+set tabstop=2
+set autoindent
+set showmode
+set showmatch
+set hlsearch
+set incsearch
+set backspace=indent,eol,start
+set showcmd             " display incomplete commands
+set ttyfast             " needed to make laggy connections work fast enough
+"set mouse=a            " enable if you want the mouse to work in xterm
+"syntax on
 set nu                    " show line numbers
 set bs=2                  " allow backspacing over everything in insert mode
 set ruler                 " show the cursor position all the time
@@ -33,7 +47,7 @@ set smartindent            " Indent at the same level of the previous line
 set expandtab             " Make tabs spaces instead
 "set tabstop=2             " An indentation every `n` columns
 "set softtabstop=2         " Let backspace delete indent
-set textwidth=78          " I like to wrap at 78 by default. In mutt I override this at 72
+set textwidth=72          " I like to wrap at 78 by default. In mutt I override this at 72
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore   " Allow for cursor beyond last character
@@ -66,6 +80,32 @@ set magic                 " for regex
 "set cinkeys=0{,0},:,0#,!,!^Fs    " <-- breaks , in c mode
 set ai
 set si
+
+" show KNF violations
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.*/
+let c_space_errors=1
+
+" backspace
+imap ^? ^H
+
+" ctrl up and ctrl down in tmux
+if &term == "screen"
+        set t_kN=^[[6;*~
+        set t_kP=^[[5;*~
+endif
+
+" text & mutt files
+au BufNewFile,BufRead /tmp/mutt*,/tmp/cvs*,*.txt set tw=72 noai noshowmatch
+au BufNewFile,BufRead /tmp/mutt*,/tmp/cvs*,*.txt setlocal spell spelllang=en_us
+au BufNewFile,BufRead /tmp/mutt*,/tmp/cvs*,*.txt syntax off
+
+" git commits
+au BufNewFile,BufRead *.git/COMMIT_EDITMSG set tw=72 noai noshowmatch
+au BufNewFile,BufRead *.git/COMMIT_EDITMSG setlocal spell spelllang=en_us
+
+" f6 toggles spelling on/off
+nn <F6> :setlocal spell! spell?<CR>
 
 " Loaded by default, unloaded in module specific configs if required.
 syntax on
@@ -106,6 +146,7 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.c :call DeleteTrailingWS()
 autocmd BufWrite *.cc :call DeleteTrailingWS()
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
@@ -117,14 +158,9 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
-" Some convenience mappings
-
-map jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-imap <C-w> <ESC><C-w> " Allow window operations while in insert-mode
 
 " Git commits
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
 
 " Statusline config
 "
