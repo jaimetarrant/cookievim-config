@@ -21,6 +21,9 @@ nnoremap <C-H> <C-W><C-H>
 
 autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
+" Goodie I can save when I forget to sudo
+cmap w!! w !sudo tee % >/dev/null
+
 " Lots of settings found on github that are useful
 set nocompatible
 set shiftwidth=2

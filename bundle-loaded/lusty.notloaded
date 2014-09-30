@@ -7,20 +7,15 @@
 " Bundle Repository {
 " -------------------
 " i.e.   Bundle 'github-user/repo'
-"
-" Bundle 'kovisoft/slimv'
 
-Bundle 'kovisoft/slimv'
+Bundle 'jbach/lusty'
 
 " }
 
 " Configuration {
 " ---------------
 " Put plugin specific configuration info here:
-
-let g:slimv_swank_cmd = '! xterm -e sbcl --load /home/jdt/.vim/bundle/slimv/slime/start-swank.lisp &'
-
-let g:lisp_rainbow=1
+"
 
 
 " }

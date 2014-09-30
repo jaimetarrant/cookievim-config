@@ -1,0 +1,18 @@
+
+Bundle 'justmao945/vim-clang'
+
+silent! runtime macros/matchit.vim
+set autochdir
+set backspace=indent,eol,start
+set foldenable
+set hidden
+set incsearch
+set laststatus=2
+set ruler
+set switchbuf=useopen,usetab
+set tags=./tags,tags;/
+set wildmenu
+nnoremap gb :buffers<CR>:sb<Space>
+
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
