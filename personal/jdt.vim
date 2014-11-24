@@ -39,31 +39,23 @@ set backspace=indent,eol,start
 set showcmd             " display incomplete commands
 set ttyfast             " needed to make laggy connections work fast enough
 "set mouse=a            " enable if you want the mouse to work in xterm
-"syntax on
 set nu                    " show line numbers
 set bs=2                  " allow backspacing over everything in insert mode
 set ruler                 " show the cursor position all the time
 set autoread              " auto read when file is changed from outside
 set wrap                  " Word wrapping
 set smartindent            " Indent at the same level of the previous line
-"set shiftwidth=2          " Set indent size ... I like 2, since I am on a small screen often.
 set expandtab             " Make tabs spaces instead
-"set tabstop=2             " An indentation every `n` columns
-"set softtabstop=2         " Let backspace delete indent
 set textwidth=72          " I like to wrap at 78 by default. In mutt I override this at 72
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore   " Allow for cursor beyond last character
-set history=1000          " Store a ton of history (default is 20)
+set history=10000          " Store a ton of history (default is 20)
 set nospell               " Spell checking off <-- drives me nuts in code.
 set hidden                " Allow buffer switching without saving
-set backspace=indent,eol,start " Backspace for dummies
 set linespace=0           " No extra spaces between rows
-set showmatch             " Show matching brackets/parenthesis
-set incsearch             " Incremental search
-set hlsearch              " Highlight search terms
 set winminheight=0        " Windows can be 0 line high
-set ignorecase           " Case insensitive search  <-- Actually I prefer                           "case sensitive
+"set ignorecase           " Case insensitive search  <-- Actually I prefer                           "case sensitive
 set smartcase             " Case sensitive when uc present
 set wildmenu              " Show list instead of just completing
 set wildmode=list:longest,full " Command <Tab> completion, list matches, then longest common part, then all.
