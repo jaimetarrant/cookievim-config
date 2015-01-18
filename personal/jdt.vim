@@ -21,6 +21,41 @@ nnoremap <C-H> <C-W><C-H>
 
 autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
+" C syntax options
+let c_syntax_for_h = 1
+let c_C99 = 1
+let c_warn_8bitchars = 1
+let c_warn_multichar = 1
+let c_warn_digraph = 1
+let c_warn_trigraph = 1
+
+" compiler stuff
+let g:compiler_gcc_ignore_unmatched_lines=1
+let mapleader=','
+" quickfix :make
+nmap <silent> <Leader>m :wa<CR>:silent! make \| redraw! \| cw<CR><CR>
+vmap <silent> <Leader>m :wa<CR>:silent! make \| redraw! \| cw<CR><CR>
+" handy shortcuts
+map <Leader>h :ccl<CR>
+map <Leader>s :cw<CR>
+map <Leader>l :cl<CR>
+" jump between messages
+map <Leader>n :cn<CR>
+map <Leader>p :cp<CR>
+
+" @c comment, @u uncomment, @p print function name
+let @u='0xx$xx^['
+let @c='I/*^[A*/^['
+let @p='ofprintf(stderr, "%s\n", __func__);^['
+
+" Maybe improvements for OBSD ?
+set cinoptions=t0,+4,(4,u4,w1
+autocmd FileType c,cpp,objc set shiftwidth=4
+autocmd FileType c,cpp,objc set softtabstop=4
+autocmd FileType c,cpp,objc let c_space_errors=1
+
+
+
 :command! -nargs=+ Calc :py print <args>
 :py from math import *
 
