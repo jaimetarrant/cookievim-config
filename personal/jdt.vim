@@ -118,9 +118,9 @@ set ai
 set si
 
 " show KNF violations
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.*/
-let c_space_errors=1
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.*/
+"let c_space_errors=1
 
 " backspace
 imap ^? ^H
