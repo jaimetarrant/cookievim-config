@@ -12,7 +12,6 @@
 "Plugin 'szw/vim-tags'
 Bundle 'xolox/vim-easytags'
 
-
 " }
 
 " Configuration {
@@ -20,17 +19,21 @@ Bundle 'xolox/vim-easytags'
 " Put plugin specific configuration info here:
 "
 " vim-tags:"
-"let g:vim_tags_ctags_binary='ectags'
+let g:vim_tags_ctags_binary='ectags'
 "let g:vim_tags_auto_generate = 1
-"let g:vim_tags_project_tags_command = "{CTAGS} -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-"let g:vim_tags_use_language_field = 1
+let g:vim_tags_project_tags_command = "{CTAGS} -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_use_language_field = 1
 
 "vim-easytags
 let g:easytags_cmd="/usr/local/bin/ectags"
+
+let g:easytags_syntax_keyword = 'always'
+let g:easytags_file = '~/.vim/tags'
+set tags=./tags;
+let g:easytags_dynamic_files = 1
 let g:easytags_by_filetype=1
 let g:easytags_async=1
-let g:easytags_syntax_keyword = 'always'
-"let g:easytags_dynamic_files = 2
 let g:easytags_events = ['BufWritePost']
-let g:easytags_autorecurse = 1
+let g:easytags_on_cursorhold = 0
+let g:easytags_auto_update = 0
 
