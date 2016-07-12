@@ -59,8 +59,8 @@ autocmd FileType c,cpp,objc let c_space_errors=1
 
 
 
-:command! -nargs=+ Calc :py print <args>
-:py from math import *
+" :command! -nargs=+ Calc :py print <args>
+" :py from math import *
 
 " Goodie I can save when I forget to sudo
 cmap w!! w !sudo tee % >/dev/null
