@@ -57,8 +57,6 @@ autocmd FileType c,cpp,objc set shiftwidth=4
 autocmd FileType c,cpp,objc set softtabstop=4
 autocmd FileType c,cpp,objc let c_space_errors=1
 
-
-
 " :command! -nargs=+ Calc :py print <args>
 " :py from math import *
 
@@ -91,11 +89,15 @@ set textwidth=72          " I like to wrap at 78 by default. In mutt I override 
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore   " Allow for cursor beyond last character
-set history=10000          " Store a ton of history (default is 20)
+set history=10000         " Store a ton of history (default is 20)
+set undolevels=1000       " Lots of undo's too.
 set nospell               " Spell checking off <-- drives me nuts in code.
 set hidden                " Allow buffer switching without saving
 set linespace=0           " No extra spaces between rows
 set winminheight=0        " Windows can be 0 line high
+set cmdheight=2           " Status bar height
+set laststatus=2          " Always show status
+
 "set ignorecase           " Case insensitive search  <-- Actually I prefer                           "case sensitive
 set smartcase             " Case sensitive when uc present
 set wildmenu              " Show list instead of just completing
@@ -210,6 +212,8 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 
+" Switch to the directory of the open buffer
+noremap <leader>cd :cd %:p:h<cr>
 
 " Git commits
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -243,8 +247,5 @@ fun! IncludeGuard()
   call append(1, "#define " . guard)
   call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
-
-" Switch to the directory of the open buffer
-noremap <leader>cd :cd %:p:h<cr>
 
 
